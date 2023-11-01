@@ -1,0 +1,80 @@
+DDLs
+
+CREATE TABLE public.bd_washer (
+	washer_id varchar(144) NOT NULL,
+	washer_name varchar(144) NULL,
+	washer_grade varchar(144) NULL,
+	washer_type varchar(144) NULL,
+	washer_phone_no varchar(144) NULL,
+	washer_car_no varchar(144) NULL,
+	washer_margin_rate varchar(144) NULL,
+	washer_intro varchar(144) NULL,
+	washer_pic_no varchar(144) NULL,
+	coverage_area_cd varchar(144) NULL,
+	enable_yn varchar(144) NULL,
+	available_tz_list varchar(144) NULL,
+	account_bank varchar(144) NULL,
+	account_no varchar(144) NULL,
+	account_owner varchar(144) NULL,
+	created_dt varchar(144) NULL,
+	CONSTRAINT bd_washer_pkey PRIMARY KEY (washer_id)
+);
+
+
+CREATE TABLE public.bd_wash (
+	wash_id varchar(144) NOT NULL,
+	washer_id varchar(144) NULL,
+	car_id varchar(144) NULL,
+	wash_type_id varchar(144) NULL,
+	payment_id varchar(144) NULL,
+	parking_pic_id varchar(144) NULL,
+	request_wash_tz varchar(144) NULL,
+	wash_dt varchar(144) NULL,
+	status_cd varchar(144) NULL,
+	request_dt varchar(144) NULL,
+	accept_dt varchar(144) NULL,
+	price int4 NULL,
+	payment_accept bool NULL,
+	CONSTRAINT bd_wash_pkey PRIMARY KEY (wash_id)
+);
+
+
+CREATE TABLE public.bd_user_jpa (
+	id varchar(255) NOT NULL,
+	username varchar(255) NULL,
+	email varchar(255) NULL,
+	"password" varchar(255) NULL,
+	CONSTRAINT bd_user_jpa_pkey PRIMARY KEY (id)
+);
+
+
+CREATE TABLE public.bd_user (
+	user_id varchar(144) NOT NULL,
+	user_email varchar(144) NULL,
+	default_address_id varchar(144) NULL,
+	default_car_id varchar(144) NULL,
+	registered_dt varchar(144) NULL,
+	last_login_dt varchar(144) NULL,
+	visit_count int4 NULL,
+	CONSTRAINT bd_user_pkey PRIMARY KEY (user_id)
+);
+
+CREATE TABLE public.bd_payment (
+	payment_id varchar(144) NOT NULL,
+	payment_type varchar(144) NULL,
+	payment_amount varchar(144) NULL,
+	payment_code varchar(144) NULL,
+	payment_dt varchar(144) NULL,
+	subscription_pay_yn varchar(144) NULL,
+	CONSTRAINT bd_payment_pkey PRIMARY KEY (payment_id)
+);
+
+
+CREATE TABLE public.bd_master (
+	info_id varchar(144) NOT NULL,
+	info_name varchar(144) NULL,
+	info_code varchar(144) NULL,
+	description_1 varchar(255) NULL,
+	description_2 varchar(255) NULL,
+	CONSTRAINT bd_master_pkey PRIMARY KEY (info_id)
+);
